@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-4">
+<div class="container">
+    <div class="my-4 d-flex justify-content-between align-items-center">
+        <h1>Create new project</h1>
+        <a href="{{ route('admin.projects.index') }}" class="btn btn-success">Back to projects list</a>
+    </div>
     <form action="{{ route('admin.projects.store')}}" method="POST">
         @csrf
         <div class="mb-3">
