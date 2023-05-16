@@ -4,7 +4,10 @@
     <div class="container">
         <div class="my-4 d-flex justify-content-between align-items-center">
             <h1 class="text-uppercase">my projects</h1>
-            <a href="{{ route('admin.dashboard') }}" class="btn btn-success">Back to Dashboard</a>
+            <div>
+                <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Create new project</a>
+                <a href="{{ route('admin.dashboard') }}" class="btn btn-success">Back to Dashboard</a>
+            </div>
         </div>
 
         <table class="table table-striped">
