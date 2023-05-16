@@ -22,7 +22,18 @@
                     <td>{{ $project->title }} </td>
                     <td>{{ $project->status }} </td>
                     <td>{{ $project->type }} </td>
-                    <td>{{ $project->starting_date }} </td>
+                    <td>{{ $project->starting_date }}</td>
+                    <td>
+                        <ul class="d-flex list-unstyled gap-2 justify-content-end align-items-center m-0">
+                            <li><a href="" class="btn btn-success p-2">Show</a></li>
+                            <li><a href="" class="btn btn-success p-2">Edit</a></li>
+                            <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="Delete" class="btn btn-danger p-2">
+                            </form>
+                        </ul>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
