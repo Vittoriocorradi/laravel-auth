@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Arr;
 use App\Functions\Helpers as Helpers;
+use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class ProjectSeeder extends Seeder
             $newProject = new Project();
 
             $newProject->title = $faker->sentence(3);
+            $newProject->slug = Str::slug($newProject->title);
             $newProject->status = $faker->word();
             $newProject->type = $faker->word();
             $newProject->starting_date = $faker->date();
