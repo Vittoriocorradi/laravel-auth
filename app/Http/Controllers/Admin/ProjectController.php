@@ -101,6 +101,6 @@ class ProjectController extends Controller
         $deleted_title = $project->title;
         $project->delete();
 
-        return to_route('admin.projects.index')->with('message', $deleted_title.' was deleted successfully');
+        return to_route('admin.projects.index')->with('d_message', $deleted_title.' was deleted successfully');
     }
 }
