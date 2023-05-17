@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Arr;
+use App\Functions\Helpers as Helpers;
 
 class ProjectSeeder extends Seeder
 {
@@ -29,7 +30,7 @@ class ProjectSeeder extends Seeder
             $newProject->objectives = $faker->sentence(10);
             $newProject->roadmap = $faker->paragraph();
             $newProject->priority = $faker->word();
-            $newProject->contributors = $this->generateContributors($faker, $faker->numberBetween(0, 6));
+            $newProject->contributors = Helpers::generateContributors($faker, $faker->numberBetween(0, 6));
             $newProject->is_finished = $faker->numberBetween(0, 1);
             if ($newProject->is_finished) {                                             //Se il progetto è finito
                 do {
@@ -42,18 +43,18 @@ class ProjectSeeder extends Seeder
     }
 
     // Genera una stringa di contributori
-    private function generateContributors(Faker $faker, int $n_persons): string{
+    // private function generateContributors(Faker $faker, int $n_persons): string{
 
-        $result = [];
+    //     $result = [];
 
-        for($i = 0; $i < $n_persons; $i++){
+    //     for($i = 0; $i < $n_persons; $i++){
 
-            $person = "{$faker->firstName()} {$faker->lastName()}";
+    //         $person = "{$faker->firstName()} {$faker->lastName()}";
 
-            array_push($result, $person);
+    //         array_push($result, $person);
 
-        }
+    //     }
 
-        return Arr::join($result, ', ');
-    }
+    //     return Arr::join($result, ', ');
+    // }
 }

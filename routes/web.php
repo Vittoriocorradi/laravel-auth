@@ -25,8 +25,10 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         
-        Route::get('/', [DashboardController::class, 'index'])
+        Route::get('dashboard', [DashboardController::class, 'index'])      //Prova
             ->name('dashboard');
+        // Route::get('/', [DashboardController::class, 'index'])
+        //     ->name('dashboard');
         Route::resource('projects', ProjectController::class);
 
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
