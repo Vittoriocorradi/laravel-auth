@@ -24,7 +24,17 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|unique:projects|string|max:75',
+            'status' => 'required|string|max:30',
+            'type' => 'required|string|max:40',
+            'starting_date' => 'required|date',
+            'finishing_date' => 'nullable|date',
+            'overview' => 'required|string',
+            'objectives' => 'required|string|max:255',
+            'roadmap' => 'nullable|string',
+            'priority' => 'nullable|string|max:30',
+            'contributors' => 'nullable|string',
+            'is_finished' => 'digits:1|integer|between:0,1'
         ];
     }
 }

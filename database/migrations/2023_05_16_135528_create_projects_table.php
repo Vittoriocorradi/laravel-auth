@@ -25,7 +25,7 @@ return new class extends Migration
             $table->text('overview');
             $table->string('objectives');
             $table->text('roadmap')->nullable();
-            $table->string('priority', 30);
+            $table->string('priority', 30)->nullable();
             $table->text('contributors')->nullable();
             $table->tinyInteger('is_finished')->default(0);
 
