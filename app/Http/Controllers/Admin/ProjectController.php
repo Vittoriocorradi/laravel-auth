@@ -48,7 +48,7 @@ class ProjectController extends Controller
         $newProject->fill($data);
         $newProject->save();
 
-        return to_route('admin.projects.index');
+        return to_route('admin.projects.index')->with('message', $newProject->title.' was created successfully');
     }
 
     /**
@@ -87,7 +87,7 @@ class ProjectController extends Controller
 
         $project->slug = Str::slug($data['title']);
         $project->update($data);
-        return to_route('admin.projects.index');
+        return to_route('admin.projects.index')->with('message', $project->title.' has been edited successfully');
     }
 
     /**
@@ -98,8 +98,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        $deleted_title = $project->title;
         $project->delete();
 
-        return to_route('admin.projects.index');
+        return to_route('admin.projects.index')->with('message', $deleted_title.' was deleted successfully');
     }
 }
