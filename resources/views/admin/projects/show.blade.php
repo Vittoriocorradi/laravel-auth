@@ -6,6 +6,9 @@
             <h1>{{ $project->title }}</h1>
             <a href="{{ route('admin.projects.index') }}" class="btn btn-success">Back to My Projects</a>
         </div>
+        <div>
+            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+        </div>
         <p>{{ $project->overview }}</p>
         <small>Started: {{ $project->starting_date }}</small>
         <br>
