@@ -34,7 +34,8 @@ class StoreProjectRequest extends FormRequest
             'roadmap' => 'nullable|string',
             'priority' => 'nullable|string|max:30',
             'contributors' => 'nullable|string',
-            'is_finished' => 'digits:1|integer|between:0,1'
+            'is_finished' => 'digits:1|integer|between:0,1',
+            'image' => 'nullable|image|max:2048'
         ];
     }
 }
