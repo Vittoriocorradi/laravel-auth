@@ -7,7 +7,7 @@
         <a href="{{ route('admin.projects.index') }}" class="btn btn-success">Back to projects list</a>
     </div>
 
-    <form action="{{ route('admin.projects.store')}}" method="POST">
+    <form action="{{ route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -69,6 +69,13 @@
             <label for="starting_date" class="form-label">Start Date</label>
             <input type="date" class="form-control @error('starting_date') is-invalid @enderror" id="starting_date" name="starting_date" value="{{ old('starting_date') }}">
             @error('starting_date')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}">
+            @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
