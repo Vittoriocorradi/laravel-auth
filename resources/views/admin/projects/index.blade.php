@@ -37,13 +37,13 @@
                         <ul class="d-flex list-unstyled gap-2 justify-content-end align-items-center m-0">
                             <li><a href="{{ route('admin.projects.show', $project) }}" class="btn btn-success p-2">Show</a></li>
                             <li><a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-success p-2">Edit</a></li>
-                            <li><a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#{{ $project->slug }}">Delete</a></li>
+                            <li><a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#project-{{ $project->id }}">Delete</a></li>
                         </ul>
                     </td>
                 </tr>
 
                 {{-- Modale per cancellazione --}}
-                <div class="modal fade" id="{{ $project->slug }}" tabindex="-1" aria-hidden="true">
+                <div class="modal fade" id="project-{{ $project->id }}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
