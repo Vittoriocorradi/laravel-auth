@@ -10,14 +10,13 @@
             </div>
         </div>
 
+        <div class="alert-container">
         @if (session('message')) 
-            <div class="alert alert-success">{{ session('message') }}</div>
+            <div id="alert-message" class="alert alert-success ms-alert">{{ session('message') }}</div>
         @endif
-        @if (session('d_message')) 
-            <div class="alert alert-danger">{{ session('d_message') }}</div>
-        @endif
+        </div>
 
-        <table class="table table-striped">
+        <table class="table table-striped mt-4">
             <thead>
                 <tr>
                     <th scope="col">Title</th>
