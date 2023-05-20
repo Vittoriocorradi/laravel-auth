@@ -7,7 +7,7 @@
         <a href="{{ route('admin.projects.index') }}" class="btn btn-success">Back to projects list</a>
     </div>
 
-    <form action="{{ route('admin.projects.update', $project)}}" method="POST">
+    <form action="{{ route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -87,6 +87,13 @@
             <label for="is_finished" class="form-label">Yes</label>
             <input type="radio" id="is_finished" name="is_finished" value="1" {{ ($project->is_finished === 1) ? "checked" : "" }}>
             @error('is_finished')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}">
+            @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>

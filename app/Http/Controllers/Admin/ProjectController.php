@@ -91,6 +91,12 @@ class ProjectController extends Controller
         $data = $request->all();
 
         $project->slug = Str::slug($data['title']);
+        if(isset($data['image'])) {
+            if($project->image) {
+                Storage::delete($project->image);
+            }
+            $project->image = Storage::put('uploads', $data['image']);
+        }
         $project->update($data);
         return to_route('admin.projects.index')->with('message', $project->title.' has been edited successfully');
     }
