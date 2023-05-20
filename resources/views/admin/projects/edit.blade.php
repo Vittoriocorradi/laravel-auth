@@ -91,6 +91,13 @@
             @enderror
         </div>
         <div class="mb-3">
+
+            <!-- anteprima immagine upload -->
+            <div class="preview">
+                <img id="file-image-preview" @if($project->image) src="{{ asset('storage/' . $project->image) }}" @endif>
+            </div>
+            <!-- /anteprima immagine upload -->
+
             <label for="image" class="form-label">Image</label>
             <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}">
             @error('image')
